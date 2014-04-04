@@ -1,0 +1,546 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+@import "bourbon";
+@import "neat";
+@import "bitters/bitters";
+@import "social_foundicons";
+
+$large-screen:em(775);
+$medium-screen: em(480);
+$small-screen: em(320);
+
+img.bio {
+  margin: 0 13px 10px 0;
+}
+
+.edit {
+  float:right;
+}
+
+.well.login {
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+section.login {
+  width: 750px;
+  padding-top: 15px;
+  margin: 0 auto;
+}
+
+p, h4 {
+  @include media ($medium-screen) {
+    padding-left: 5px;
+  }
+   @include media ($small-screen) {
+    padding-left: 5px;
+  }
+}
+.alert {
+  color: #fff;
+  padding: 5px 0 5px 10px;
+  display: block;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0 auto;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.alert-success {
+  background-color: #7dc36b;
+}
+
+.alert-error {
+  background-color: #d9d876;
+}
+
+#flash_notice {
+  width: 780px;
+  margin: 0 auto;
+}
+
+.entry {
+  width: 750px;
+  margin: 0 auto;
+  a {
+    color: white;
+    background-color: #0a6ead;
+    padding: 1px 3px 1px 3px;
+    text-decoration: none;
+  }
+  h3 {
+    padding: 20px 0 5px 0;
+  }
+  section.posted {
+    font-size: .8em;
+    padding-bottom: 10px;
+    span.date {
+      font-style: italic;
+      font-weight: 800;
+    }
+  }
+}
+
+section.projects {
+  padding-top: 15px;
+  width: 750px;
+  margin: 0 auto;
+}
+
+section.blogs {
+  padding-top: 15px;
+  width: 750px;
+  margin: 0 auto;
+  .grid-item {
+    width: 20%;
+    height: 150px;
+  }
+  li {
+    height: 125px;
+    margin-bottom: 25px;
+    border-bottom: solid rgb(204, 204, 204) 1px;
+  }
+  li:last-child {
+    border-bottom: none;
+  }
+  @include outer-container;
+  aside { 
+    @include span-columns(3);
+    width: 150px; 
+    padding: 0;
+  }
+  article { 
+    @include span-columns(12); 
+  }
+  h3 {
+    padding-bottom: 15px;
+  }
+}
+
+.bio {
+  float: left;
+  display:inline-block;
+}
+
+body { margin: 0px; }
+section {
+  @include outer-container;
+  max-width: 100%!important;
+}
+
+h3.blogs {
+  width: 250px;
+  padding: 10px 10px 10px 0;
+}
+
+.about {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+header.navigation {
+  $navigation-background: $dark-gray;
+  $navigation-color: transparentize(white, 0.3);
+  $navigation-color-hover: white;
+  $navigation-height: 60px;
+  $navigation-nav-button-background: $base-accent-color;
+  $navigation-nav-button-background-hover: lighten($navigation-background, 10);
+  $navigation-nav-button-border: 1px solid lighten($navigation-nav-button-background, 20);
+  $navigation-search-background: lighten($navigation-background, 5);
+  $navigation-search-border: 1px solid darken($navigation-background, 5);
+
+  background-color: $navigation-background;
+  border-bottom: 1px solid darken($navigation-background, 10);
+  font-family: $sans-serif;
+  height: $navigation-height;
+  width: 100%;
+  z-index: 999;
+
+  .menu-wrapper {
+    @include outer-container;
+    position: relative;
+    z-index: 9999;
+    max-width: 100%;
+    @include media ($large-screen) {
+      max-width: 25em;
+    }
+
+  }
+
+  .logo {
+    float: left;    
+    max-height: $navigation-height;
+    padding-left: 1em;
+    padding-right: 2em;
+
+    img {
+      max-height: $navigation-height;
+      padding: .8em 0;
+    }
+  }
+
+  .menu-button {
+    color: $navigation-color;
+    cursor: pointer;
+    display: block;
+    float: right;
+    font-family: $sans-serif;
+    font-weight: 700;
+    line-height: $navigation-height;
+    margin: 0;
+    padding-right: 1em;
+    text-transform: uppercase;
+
+    @include media ($large-screen) {
+      display: none;
+    }
+
+    &:hover {
+      color: $navigation-color-hover;
+    }
+  }
+
+  .nav {
+    @include media ($large-screen) {
+      float: left;
+    }
+  }
+
+  ul#navigation-menu {    
+    clear: both;
+    -webkit-transform-style: preserve-3d; // stop webkit flicker
+    display: none;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    z-index: 9999;
+
+    @include media ($large-screen) {
+      display: inline;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  ul li {
+    background: $navigation-background;
+    display: block;
+    line-height: $navigation-height;
+    overflow: hidden;
+    padding-right: .8em;
+    text-align: right;
+    width: 100%;
+    z-index: 9999;
+
+    @include media ($large-screen) {
+      background: transparent;
+      display: inline;
+      line-height: $navigation-height;
+      padding-right: 2em;
+      text-decoration: none;
+      width: auto;
+    }
+
+    a {
+      font-weight: 400;
+      color: $navigation-color;
+
+      &:hover {
+        color: $navigation-color-hover;
+      }
+    }
+  }
+
+.login {
+  right: -90px!important;
+}
+
+  .sign-up {
+    @include media ($large-screen) {
+      @include position(absolute, 0px 0px 0 0);
+      padding-right: 1em;
+
+      a {
+        @include transition (all 0.2s ease-in-out);
+        background: $navigation-nav-button-background;
+        border-radius: $base-border-radius; 
+        color: white;
+        font-size: .8em;  
+        font-weight: 800;
+        padding: .6em 1em;
+        text-transform: uppercase;
+
+        &:hover {
+          background: lighten($navigation-nav-button-background, 10);
+        }
+      }
+    }
+  }
+
+  li.navigation-search-bar {
+    display: none;
+
+    @include media($large-screen) {
+      @include position(absolute, 0px 76px 0 0);
+      display: inline-block;
+      line-height: 0 !important;
+      padding: 13px 30px; // this to get around Firefox/Opera line-height "bug"
+    }
+  }
+
+  .search-bar {
+    $search-bar-border-color: $base-border-color;
+    $search-bar-border: 1px solid $search-bar-border-color;
+    $search-bar-background: lighten($search-bar-border-color, 10);
+
+    width: 19em;
+    position: relative; 
+    display: inline-block;
+
+    input {
+      @include box-sizing(border-box);
+      display: block;
+    }
+
+    .search-and-submit {
+      position: relative;
+
+      input[type=search] {
+        background: $navigation-search-background;
+        border: $navigation-search-border;
+        padding: .6em .8em;
+        font-size: .9em;
+        font-style: italic;
+        color: $navigation-color;
+        border-radius: $base-border-radius * 2;
+        margin: 0;
+      }
+
+      button[type=submit] {
+        @include button(simple, lighten($navigation-search-background, 10));
+        @include position(absolute, 0.3em 0.3em 0.3em 0);
+        outline: none;
+        padding: 5px 15px;
+
+        img {
+          height: 12px;
+          opacity: .7;
+        }
+      }
+    }
+  }
+}
+
+.footer-2 {
+  $footer-background: desaturate(darken($base-accent-color, 20), 30);
+  $footer-color: white;
+  $footer-link-color: transparentize($footer-color, .6);
+  $footer-disclaimer-color: transparentize($footer-color, .6);
+  $footer-height: 75px;
+
+  background: $footer-background;
+  padding: $base-line-height;
+  width: 100%;
+  height: 90px;
+  bottom: 0;
+  @include media($large-screen) {
+    height: $footer-height;
+  }
+
+  .footer-logo {
+    margin-right: 1em;
+    margin-bottom: 1em;
+
+    @include media($large-screen) {
+      float: left;
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-logo img {
+    height: 1.6em;
+  } 
+
+  ul {
+    margin-bottom: 1em;
+    @include media($large-screen) {
+      float: left;
+      margin-left: 1em;
+      margin-bottom: 0;
+    }
+  }
+
+  ul li {
+    padding-right: 1em;
+    font-weight: 800;
+
+    @include media($large-screen) {
+      display: inline;
+      text-align: left;
+    }
+  }
+
+  ul li a {
+    color: $footer-link-color;
+
+    &:hover {
+      color: transparentize($footer-color, 0);
+    }
+  }
+
+  .footer-secondary-links {
+    width: 150px;
+    margin: 0 auto;
+    li {
+      font-size: .8em;
+      font-weight: 400;
+    }
+
+    ul.footer-social {
+      margin-top: 1em;
+
+      @include media($large-screen) {
+        margin-top: 0;
+      }
+
+      li {
+        float: left;
+        font-size: 1.5em;
+        padding-right: .7em;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+
+      img {
+        opacity: .7;
+        height: 1.6em;
+        padding: 1px;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
+}
+.grid-items {
+   @include media($large-screen) {
+      width: 750px;
+      margin: 0 auto;
+   }
+
+  $grid-items-background: $base-body-color;
+  $grid-item-background: desaturate($base-accent-color, 30); 
+  $grid-item-colors: 
+    desaturate($base-accent-color, 30), 
+    #3581A5, 
+    #5FBEBE,
+    #98C79A,
+    #A7A891, 
+    #BDCC97,
+    #979EA0;
+  $grid-item-border-size: 9px;
+  $grid-item-border: $grid-item-border-size solid $grid-items-background;
+  $grid-item-columns: 4;
+  $grid-item-big-columns: 8;
+  $grid-item-color: white;
+  $grid-item-height: 14em;
+
+  @include clearfix;
+    
+  .grid-item {
+    @include transition (all 0.2s ease-in-out);
+    height: $grid-item-height;
+    background: $grid-item-background;
+    width: 50%;
+    overflow: hidden;
+    float: left;
+    padding: 2em;
+    border-top: 0;
+    border-bottom: $grid-item-border-size solid $grid-items-background;
+    border-left: $grid-item-border-size /2 solid $grid-items-background;
+    border-right: $grid-item-border-size /2 solid $grid-items-background;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+    }
+
+    @for $i from 1 to 8 { // assign colors from $grid-item-colors list
+      &:nth-child(#{$i}) {
+        $background-from-list: nth($grid-item-colors, $i);
+        background-color: $background-from-list;
+        box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10);
+        &:hover {
+          background-color: darken($background-from-list, 10);
+          background-repeat: no-repeat;
+          background-position: top;
+          background-size: cover;
+        }
+      }
+    }
+  }
+
+  .grid-item img {
+      display: block;
+      height: 3em;
+      margin: auto;
+      margin-bottom: 1em;
+    }
+
+  .grid-item h1 {
+      color: $grid-item-color;
+      font-size: 1.3em;
+      margin-bottom: .4em;
+    }
+
+  .grid-item p {
+      margin: auto;
+      color: transparentize($grid-item-color, .3);
+      @include media($medium-screen) {
+      }
+    }
+
+  .grid-item-big {
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-big-columns);
+    }
+    p {
+      @include media($medium-screen) {
+        max-width: 60%;
+      }  
+    }
+  }
+
+  .grid-item-image {
+    background: url(https://raw.github.com/Magnus-G/Random/master/lake-transparent.png);
+    background-color: $grid-item-background;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+}
+

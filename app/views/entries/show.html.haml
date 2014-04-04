@@ -1,0 +1,10 @@
+%section.entry
+  %h3 #{@entry.title}
+  - if logged_in?
+    %a{href: edit_entry_path(@entry), class: "edit"}
+      %p Edit
+  %section.posted
+    %p
+      Originally posted on
+      %span.date 11/12/13
+  %p  #{markdown(@entry.body)}

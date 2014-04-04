@@ -1,0 +1,12 @@
+.well.form.entry
+  = form_for @entry do |f|
+    .control-group
+      = f.label :title
+      = f.text_field :title
+    .control-group
+      = f.label :excerpt
+      = f.text_field :excerpt
+    .control-group
+      = f.label :body
+      = f.text_area :body, rows: 25
+    = f.submit("Submit", class: 'btn btn-primary')

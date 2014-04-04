@@ -1,0 +1,34 @@
+%header.navigation
+  .menu-wrapper
+    %p#js-mobile-menu.menu-button MENU
+    .nav
+      %ul#navigation-menu
+        %li
+          %a{href: root_path} Home
+        %li
+          %a{href: entries_path} Blog
+        %li
+          %a{href: "javascript:void(0)"} Projects
+        %li.navigation-search-bar
+        %li.sign-up
+          %a{href: "mailto:ianknauer@gmail.com"} Contact
+        - if logged_in?
+          %li.sign-up.login
+            %a{href: logout_path} Log Out
+        - else
+          %li.sign-up.login
+            %a{href: login_path} Log In
+:javascript
+  $(function() {
+    var menu = $('#navigation-menu');
+    var menuToggle = $('#js-mobile-menu');
+
+    $(menuToggle).on('click', function(e) {
+      e.preventDefault();
+      menu.slideToggle(function(){
+        if(menu.is(':hidden')) {
+          menu.removeAttr('style');
+        }
+      });
+    });
+  });

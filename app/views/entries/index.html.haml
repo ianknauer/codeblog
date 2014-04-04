@@ -1,0 +1,13 @@
+%section.blogs
+  %ul
+    - @entries.each do |entry|
+      %li
+        %article 
+          %a{href: entry_path(entry)}
+            %h4 #{entry.title}
+            - if logged_in?
+              %a{href: edit_entry_path(entry), class: "edit"}
+                %p Edit
+          %p.description #{entry.excerpt}
+          %a{href: entry_path(entry)}
+            %span read more...

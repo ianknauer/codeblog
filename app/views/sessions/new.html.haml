@@ -1,0 +1,11 @@
+%section.login
+  %h4 Please log in
+  .well.login
+    = form_tag '/login' do
+      .control-group
+        = label_tag :email
+        = text_field_tag :email, params[:email] || ''
+      .control.group
+        = label_tag :password
+        = password_field_tag :password, params[:password] || ''
+      = submit_tag "Login", class: 'btn btn-success'
