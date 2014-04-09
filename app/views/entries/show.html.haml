@@ -7,4 +7,4 @@
     %p
       Originally posted on
       %span.date 11/12/13
-  %p  #{markdown(@entry.body)}
+  %p  #{@entry.body.html_safe}
