@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   helper_method :require_user
   helper_method :set_metadata
+  helper_method :is_published?
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

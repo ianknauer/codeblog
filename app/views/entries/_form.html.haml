@@ -1,6 +1,9 @@
 .well.form.entry
   = form_for @entry do |f|
     .control-group
+      = f.label :published
+      = f.check_box :published
+    .control-group
       = f.label :title
       = f.text_field :title
     .control-group

@@ -11,4 +11,12 @@ class Entry < ActiveRecord::Base
   def to_param
     self.slug
   end
+
+  def self.all_published
+    where published: true
+  end
+
+  def published?
+    self.published
+  end
 end

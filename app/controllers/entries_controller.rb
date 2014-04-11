@@ -16,11 +16,23 @@ class EntriesController < ApplicationController
   end
 
   def index
-    @entries = Entry.all
+    if logged_in?
+      @entries = Entry.all
+    else
+      @entries = Entry.all_published
+    end
   end
 
   def show
-    set_metadata("#{@entry.title}","#{@entry.excerpt}","b")
+    if @entry.published?
+      set_metadata("#{@entry.title}","#{@entry.excerpt}","b")
+    else
+      if logged_in?
+      else
+        flash[:error] = "sorry, you need to be logged in to see that"
+        redirect_to root_path
+      end
+    end
   end
 
   def edit
