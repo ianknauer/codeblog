@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :logged_in?
   helper_method :require_user
+  helper_method :set_metadata
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -16,5 +17,12 @@ class ApplicationController < ActionController::Base
 
   def require_user
     redirect_to root_path unless logged_in?
+  end
+
+  def set_metadata(title, description, keywords)
+    set_meta_tags title: title,
+                  description: description,
+                  keywords: keywords,
+                  og: { title: title, description: description, keywords: keywords }
   end
 end

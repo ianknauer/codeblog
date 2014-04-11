@@ -20,6 +20,7 @@ class EntriesController < ApplicationController
   end
 
   def show
+    set_metadata("#{@entry.title}","#{@entry.excerpt}","b")
   end
 
   def edit
