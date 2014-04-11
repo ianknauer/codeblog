@@ -12,7 +12,6 @@ gem 'neat'
 gem 'haml-rails'
 gem 'kramdown'
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'analytics-ruby', '~>1.0'
 
 group :development do
   gem 'sqlite3'
