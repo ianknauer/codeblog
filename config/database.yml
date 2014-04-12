@@ -17,3 +17,11 @@ test:
   database: db/test.sqlite3
   pool: 5
 timeout: 5000
+
+
+Production:
+  adapter: postgresql
+  encoding: utf8
+  database: blog
+  username: rails_myapp_user
+  password: Maddy0425
