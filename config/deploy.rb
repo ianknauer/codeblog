@@ -1,6 +1,5 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
-require 'sidekiq/capistrano'
 
 server "192.241.229.217", :web, :app, :db, primary: true
 
@@ -12,7 +11,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@github.com:iknauer/codeblog.git"
+set :repository, "git@github.com:ianknauer/codeblog.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
