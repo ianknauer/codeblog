@@ -1,6 +1,15 @@
-working_directory "/var/www/my_app"
-pid "/var/www/my_app/pids/unicorn.pid"
-stderr_path "/var/www/my_app/log/unicorn.log"
-stdout_path "/var/www/my_app/log/unicorn.log"
+root = "/home/deployer/apps/photo_app/current"
+working_directory root
+pid "#{root}/tmp/pids/unicorn.pid"
+stderr_path "#{root}/log/unicorn.log"
+stdout_path "#{root}/log/unicorn.log"
+
+listen "/tmp/unicorn.photo_app.sock"
 worker_processes 2
 timeout 30
+
+# Force the bundler gemfile environment variable to
+# reference the capistrano "current" symlink
+before_exec do |_|
+  ENV["BUNDLE_GEMFILE"] = File.join(root, 'Gemfile')
+end

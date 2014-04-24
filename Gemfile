@@ -13,6 +13,9 @@ gem 'haml-rails'
 gem 'kramdown'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'meta-tags', '1.5.0', require: 'meta_tags'
+gem 'unicorn'
+gem 'capistrano'
+gem 'rvm-capistrano'
 
 group :development do
   gem 'sqlite3'
